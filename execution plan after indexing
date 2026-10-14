@@ -1,0 +1,15 @@
+
+EXPLAIN (ANALYZE, BUFFERS)
+SELECT
+    transaction_id,
+    transaction_type,
+    amount,
+    status,
+    transaction_date
+FROM transactions
+WHERE account_id = (
+    SELECT account_id
+    FROM accounts
+    WHERE account_number = 'FIN100001'
+)
+ORDER BY transaction_date DESC;
