@@ -1,0 +1,14 @@
+
+EXPLAIN (ANALYZE, BUFFERS)
+SELECT
+    t.transaction_id,
+    a.account_number,
+    t.transaction_type,
+    t.amount,
+    t.status,
+    t.transaction_date
+FROM transactions AS t
+JOIN accounts AS a
+    ON a.account_id = t.account_id
+WHERE a.account_number = 'FIN100001'
+ORDER BY t.transaction_date DESC;
