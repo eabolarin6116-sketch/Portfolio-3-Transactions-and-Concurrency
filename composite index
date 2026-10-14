@@ -1,0 +1,11 @@
+
+EXPLAIN (ANALYZE, BUFFERS)
+SELECT
+    transaction_id,
+    transaction_type,
+    amount,
+    status,
+    transaction_date
+FROM transactions
+WHERE account_id = 1
+ORDER BY transaction_date DESC;
