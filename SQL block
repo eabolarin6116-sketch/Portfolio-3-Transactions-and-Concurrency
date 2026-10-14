@@ -1,0 +1,9 @@
+
+BEGIN;
+
+UPDATE accounts
+SET balance = balance + 1000.00
+WHERE account_number = 'FIN100001'
+RETURNING account_number, balance;
+
+ROLLBACK;
