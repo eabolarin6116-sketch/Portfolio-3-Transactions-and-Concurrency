@@ -1,0 +1,12 @@
+
+BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ;
+
+SHOW transaction_isolation;
+
+SELECT
+    account_number,
+    balance
+FROM accounts
+WHERE account_number = 'FIN100001';
+
+COMMIT;
