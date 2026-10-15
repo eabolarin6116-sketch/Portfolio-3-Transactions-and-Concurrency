@@ -23,3 +23,29 @@ Screenshots and SQL examples will be added to document commit, rollback, isolati
  6. Conclusion
 
 This portfolio examines how transaction management and concurrency controls help preserve consistency during financial operations.
+
+
+
+ Repeatable-Read Isolation Experiment
+
+Objective
+
+To demonstrate how PostgreSQL's `REPEATABLE READ` isolation level provides a consistent view of account data during concurrent transactions.
+
+ Procedure
+
+1. Session A began a transaction using `REPEATABLE READ` and read Ada's account balance as ₦105,000.00.
+2. Session B updated the balance by ₦1,000 and committed the change. Its updated balance was ₦106,000.00.
+3. Session A queried the balance again without ending its transaction.
+4. Session A still returned ₦105,000.00 because it continued to use its original transaction snapshot.
+
+ Result
+
+The experiment demonstrated repeatable-read behaviour: Session A did not see Session B's committed update while Session A's transaction remained open.
+
+ Conclusion
+
+Transaction isolation helps control how concurrent database operations observe changes. PostgreSQL's `REPEATABLE READ` level maintained a consistent snapshot for Session A during this experiment.
+
+Screenshots of both sessions provide supporting evidence.
+
