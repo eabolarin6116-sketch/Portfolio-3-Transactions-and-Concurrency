@@ -49,3 +49,16 @@ Transaction isolation helps control how concurrent database operations observe c
 
 Screenshots of both sessions provide supporting evidence.
 
+
+## Supporting Documentation and Evidence
+
+- `concurrency-control.md` — explains row-level locking using `SELECT ... FOR UPDATE`.
+- Repeatable-read experiment screenshots — show the account balance observed in Session A before and after Session B commits an update.
+- Rollback evidence — shows that an uncommitted balance change is undone.
+- Transaction evidence — documents successful deposits, withdrawals, and transfers.
+
+## Summary
+
+The portfolio demonstrates transaction commit and rollback, repeatable-read isolation, and row-level locking in PostgreSQL. These mechanisms help maintain data consistency during financial operations.
+
+
